@@ -24,8 +24,8 @@ class BoundingBox extends ShapeAlgebra[Location] {
       Location(minx, miny, Rectangle(rectWidth, rectHeight))
     }) 
     result
-	// TODO: implement based on algorithm from previous subproject
-	//throw new UnsupportedOperationException("nyi")
+
+
   }
 }
 
