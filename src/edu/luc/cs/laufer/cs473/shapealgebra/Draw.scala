@@ -17,7 +17,7 @@ class Draw {
     }
 
 
-    // TODO: Location and Group
+
   }
 }
 
