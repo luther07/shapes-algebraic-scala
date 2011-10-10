@@ -9,7 +9,14 @@ class Draw {
     case Location(x, y, s: Shape) => {
       g.translate(x, y)
       draw(g)(s)
+      g.translate(-x, -y)
     }
+    case Group(shapes @ _*) => {
+      val shapelist = shapes.toList
+      shapelist.foreach(s => draw(g)(s))
+    }
+
+
     // TODO: Location and Group
   }
 }
