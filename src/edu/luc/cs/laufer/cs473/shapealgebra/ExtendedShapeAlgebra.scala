@@ -10,7 +10,7 @@ trait ExtendedShapeAlgebra[R] extends ShapeAlgebra[R] {
   def visitOutline(r: R, s: Shape): R
   def visitPoint(p: Point): R
   def visitPolygon(p:Polygon): R
-  def visitRotate(r: Rotate): R
+  def visitRotate(r: R, rot: Rotate): R
   def visitCircle(c: Circle): R
 
   // TODO: add missing visit methods similarly to Location
@@ -24,7 +24,7 @@ trait ExtendedShapeAlgebra[R] extends ShapeAlgebra[R] {
     case o: Outline => visitOutline(fold(o.shape), o)
     case p: Point => visitPoint(p)
     case p: Polygon => visitPolygon(p)
-    case r: Rotate => visitRotate(r)
+    case rot: Rotate => visitRotate(fold(rot.shape), rot)
     case c: Circle => visitCircle(c)
     // TODO: add missing cases similarly to Location
     case _ => super.fold(s)
