@@ -1,1 +1,12 @@
-README
+README:
+Proj 1b:
+1: (1 point) DONE: Implement BoundingBox based on algorithm from previous subproject.
+2: (2 points) DONE: Add missing cases for Location and Group. Test suite "TestDraw" should now pass.
+3: (5 point) DONE: Define the missing additional shapes. The compile-time errors in TestFixturesExtended should now disappear.
+4: (2 points) DONE: Add the missing visitMethods and cases in the fold method similarly to Location in ShapeAlgebra.
+5: (6 points) PARTIAL: 
+   a. DONE: ExtendedShapeSize, Explicitly forward visit methods to original shapes at object level.
+   b. PARTIAL: ExtendedShapeDepth, implement all visit methods from scratch.
+   c. PARTIAL: ExtendedBoundingBox, inherit methods from the original shapes at the class level. Approximate the bounding
+               box of a rotated shape by rotating the bounding box around its anchor point.
+6: (4 points) INCOMPLETE: ExtendedDraw, add the missing cases for the missing additional shapes.
