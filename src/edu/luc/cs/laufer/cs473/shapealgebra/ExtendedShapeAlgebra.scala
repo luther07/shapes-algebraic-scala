@@ -9,7 +9,7 @@ trait ExtendedShapeAlgebra[R] extends ShapeAlgebra[R] {
   def visitFill(r: R, s: Shape): R
   def visitOutline(r: R, s: Shape): R
   def visitPoint(p: Point): R
-  def visitPolygon(ps: Seq[R], p:Polygon): R
+  def visitPolygon(r: R, p:Polygon): R
   def visitRotate(r: Rotate): R
   def visitCircle(c: Circle): R
 
