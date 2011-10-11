@@ -6,7 +6,7 @@ package edu.luc.cs.laufer.cs473.shapealgebra
 trait ExtendedShapeAlgebra[R] extends ShapeAlgebra[R] {
 
   def visitStroke(r: R, s: Stroke): R
-  def visitFill(s: Shape): R
+  def visitFill(r: R, s: Shape): R
   def visitOutline(s: Shape): R
   def visitPoint(p: Point): R
   def visitPolygon(ps: Seq[R], p:Polygon): R
@@ -20,7 +20,7 @@ trait ExtendedShapeAlgebra[R] extends ShapeAlgebra[R] {
    */
   override def fold(s: Shape): R = s match {
     case s: Stroke => visitStroke(fold(s.shape), s)
-    case f: Fill => visitFill(f)
+    case f: Fill => visitFill(fold(f.shape), f)
     case o: Outline => visitOutline(o)
     case p: Point => visitPoint(p)
     case p: Polygon => visitPolygon(p.points.map(fold(_)), p)
