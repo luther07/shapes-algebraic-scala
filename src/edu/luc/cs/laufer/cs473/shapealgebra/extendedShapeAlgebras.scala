@@ -3,9 +3,18 @@ package edu.luc.cs.laufer.cs473.shapealgebra
 object ExtendedShapeSize extends ExtendedShapeAlgebra[Int] {
   // forward methods for original shapes at object level
   override def visitEllipse(e: Ellipse) = ShapeSize.visitEllipse(e)
+  override def visitRectangle(r: Rectangle) = ShapeSize.visitRectangle(r)
+  override def visitLocation(l: Location) = ShapeSize.visitLocation(l)
+  override def visitGroup(g: Group) = ShapeSize.visitGroup(g)
   // TODO: methods for the other original shapes
   // new methods for extended shapes
   override def visitStroke(r: Int, s: Stroke) = r
+  override def visitFill(r: Int, f: Fill ) = r
+  override def visitOutline(r: Int, o: Outline) = r
+  override def visitPoint(p: Point) = 1
+  override def visitPolygon(p: Polygon) = 1
+  override def visitRotate(r: Int, rot: Rotate) = r
+  override def visitCircle(c: Circle) = 1
   // TODO: methods for the other additional (extended) shapes
 }
 
