@@ -12,9 +12,9 @@ case class Fill(shape: Shape) extends Decorator(shape)
 
 case class Outline(shape: Shape) extends Decorator(shape)
 
-case class Point(x: Int, y: Int) extends Shape
+case class Point(x: Int, y: Int)
 
-case class Polygon(ps: Point*) extends Shape
+case class Polygon(points: Point*) extends Shape
 
 case class Rotate(deg: Int, shape: Shape) extends Decorator(shape)
 
