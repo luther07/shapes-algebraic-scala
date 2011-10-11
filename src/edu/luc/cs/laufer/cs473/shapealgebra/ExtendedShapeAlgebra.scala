@@ -6,8 +6,8 @@ package edu.luc.cs.laufer.cs473.shapealgebra
 trait ExtendedShapeAlgebra[R] extends ShapeAlgebra[R] {
 
   def visitStroke(r: R, s: Stroke): R
-  def visitFill(r: R, s: Shape): R
-  def visitOutline(r: R, s: Shape): R
+  def visitFill(r: R, f: Fill): R
+  def visitOutline(r: R, o:Outline ): R
   def visitPoint(p: Point): R
   def visitPolygon(p:Polygon): R
   def visitRotate(r: R, rot: Rotate): R
