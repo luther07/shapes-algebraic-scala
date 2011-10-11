@@ -16,8 +16,8 @@ case class Point(x: Int, y: Int) extends Shape
 
 case class Polygon(ps: Point*) extends Shape
 
-case Rotate(deg: Int, s: Shape) extends Decorator
+case class Rotate(deg: Int, s: Shape) extends Decorator
 
-case Circle(r: Int) extends Shape
+case class Circle(r: Int) extends Shape
 
 // TODO: your job (avoid inheritance among case classes)
