@@ -5,7 +5,7 @@ object ExtendedShapeSize extends ExtendedShapeAlgebra[Int] {
   override def visitEllipse(e: Ellipse) = ShapeSize.visitEllipse(e)
   override def visitRectangle(r: Rectangle) = ShapeSize.visitRectangle(r)
   override def visitLocation(r: Int, l: Location) = ShapeSize.visitLocation(r: Int, l)
-  override def visitGroup(rs: Seq[Int], g: Group) = ShapeSize.visitGroup(Seq[Int], g)
+  override def visitGroup(rs: Seq[Int], g: Group) = ShapeSize.visitGroup(rs: Seq[Int], g)
   // TODO: methods for the other original shapes
   // new methods for extended shapes
   override def visitStroke(r: Int, s: Stroke) = r
