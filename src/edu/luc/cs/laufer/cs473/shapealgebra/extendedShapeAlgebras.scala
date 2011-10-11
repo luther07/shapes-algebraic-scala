@@ -11,7 +11,7 @@ object ExtendedShapeSize extends ExtendedShapeAlgebra[Int] {
   override def visitStroke(r: Int, s: Stroke) = r
   override def visitFill(r: Int, f: Fill) = r
   override def visitOutline(r: Int, o: Outline) = r
-//override def visitPoint(p: Point) = 1
+  override def visitPoint(p: Point) = 1
   override def visitPolygon(p: Polygon) = 1
   override def visitRotate(r: Int, rot: Rotate) = r
   override def visitCircle(c: Circle) = 1
@@ -19,24 +19,40 @@ object ExtendedShapeSize extends ExtendedShapeAlgebra[Int] {
 }
 
 object ExtendedShapeDepth extends ExtendedShapeAlgebra[Int] {
-  override def visitEllipse(e: Ellipse) = 0
-  override def visitRectangle(r: Rectangle) = 0
-  override def visitLocation(r: Int, l: Location) = 0
-  override def visitGroup(rs: Seq[Int], g: Group) = 0
-  override def visitStroke(r: Int, f: Fill) = 0 
-  override def visitFill(r: Int, f: Fill) = 0
-  override def visitOutline(r: Int, o: Outline) = 0
-//override def visitPoint(p: Point) = 0
-  override def visitPolygon(p: Polygon) = 0
-  override def visitRotate(r: Int, rot: Rotate) = 0
-  override def visitCircle(c: Circle) = 0
+  override def visitEllipse(e: Ellipse) = 0 		//logic not worked out
+  override def visitRectangle(r: Rectangle) = 0 	//logic not worked out
+  override def visitLocation(r: Int, l: Location) = 0 	//logic not worked out
+  override def visitGroup(rs: Seq[Int], g: Group) = 0 	//logic not worked out
+  override def visitStroke(r: Int, f: Fill) = 0  	//logic not worked out
+  override def visitFill(r: Int, f: Fill) = 0 		//logic not worked out
+  override def visitOutline(r: Int, o: Outline) = 0 	//logic not worked out
+  override def visitPolygon(p: Polygon) = 0 		//logic not worked out
+  override def visitRotate(r: Int, rot: Rotate) = 0 	//logic not worked out
+  override def visitCircle(c: Circle) = 0 		//logic not worked out
   // TODO: all methods defined from scratch
 }
 
 class ExtendedBoundingBox extends BoundingBox with ExtendedShapeAlgebra[Location] {
   // methods for original shapes inherited at class level
   // TODO: methods for the other additional (extended) shapes
-  override def visitStroke(r: Location, s: Stroke) = r
+  override def visitStroke(s: Stroke) = 
+  override def visitFill(r: Location, f: Fill) = 
+  override def visitOutline(r: Location, f: Fill) = r
+  override def visitPolygon(p: Polygon) = {
+    result = p.points.reduceLeft(((a: Point, b: Point) => {
+      val minx = (a.x).min(b.x))
+      val miny = (a.y).min(b.y))
+      val maxx = (a.x).max(b.x))
+      val maxy = (a.y).max(b.y))
+      val rectWidth = maxx + (-minx)
+      val rectHeight = maxy = (-miny)
+      Location(minx, miny, Rectangle(rectWidth, rectHeight))
+    } 
+    result
+  }
+  override def visitRotate(r: Location, rot: Rotate) = r
+  override def visitCircle(c: Circle) = Location(-r, -r, Rectangle(2*r, 2*r))
+    
   // TODO: reduce Circle to Ellipse (avoid code duplication)
   // etc.
 }
