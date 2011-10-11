@@ -6,17 +6,17 @@ import java.awt.Color
  * Some additional shape classes added later.
  */
 
-case class Stroke(c: Color, s: Shape) extends Decorator
+case class Stroke(c: Color, shape: Shape) extends Decorator(shape)
 
-case class Fill(s: Shape) extends Decorator
+case class Fill(shape: Shape) extends Decorator(shape)
 
-case class Outline(s: Shape) extends Decorator
+case class Outline(shape: Shape) extends Decorator(shape)
 
 case class Point(x: Int, y: Int) extends Shape
 
 case class Polygon(ps: Point*) extends Shape
 
-case class Rotate(deg: Int, s: Shape) extends Decorator
+case class Rotate(deg: Int, shape: Shape) extends Decorator(shape)
 
 case class Circle(r: Int) extends Shape
 
